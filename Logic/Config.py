@@ -8,6 +8,17 @@ class Credenciales ():
     def credenciales_bd(self):
         return CREDENCIALES_BD
 
+def abrirArchivo():
+    archivo = '../config.ini'
+    # Crear el parser y leer el archivo
+    parser = ConfigParser()
+    parser.read(archivo)
+    return parser
+
+def guardarArchivo(archivo):
+    with open('../config.ini', 'w') as archivoini:
+        archivo.write(archivoini)
+
 def config(seccion):
     archivo = '../config.ini'
     # Crear el parser y leer el archivo
