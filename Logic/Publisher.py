@@ -1,14 +1,14 @@
 import requests
 
 class Publisher:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        pass
 
-    def postProfText(self):
-        profile_id = 'profile_id'
+    def postProfText(self,profile_id,access_token,message):
+        #profile_id = 'profile_id'
 
         #scope: w_member_social,r_liteprofile
-        access_token = 'access_token'
+        #access_token = 'access_token'
 
         url = "https://api.linkedin.com/v2/ugcPosts"
 
@@ -16,14 +16,13 @@ class Publisher:
                    'X-Restli-Protocol-Version': '2.0.0',
                    'Authorization': 'Bearer ' + access_token}
 
-
         post_data = {
             "author": "urn:li:person:"+profile_id,
             "lifecycleState": "PUBLISHED",
             "specificContent": {
                 "com.linkedin.ugc.ShareContent": {
                     "shareCommentary": {
-                        "text": "Hello World! This is my first Share on LinkedIn through Python!!"
+                        "text": message
                     },
                     "shareMediaCategory": "NONE"
                 }
@@ -35,9 +34,9 @@ class Publisher:
 
         response = requests.post(url, headers=headers, json=post_data)
 
-        print(response)
+        return response
 
-    def postOrgText(self):
+    def postOrgText(self,organization_id,access_token,message):
         organization_id = 'organization_id'
 
         #scope: w_member_social,r_liteprofile,w_organization_social
@@ -56,7 +55,7 @@ class Publisher:
             "specificContent": {
                 "com.linkedin.ugc.ShareContent": {
                     "shareCommentary": {
-                        "text": "Hello World! This is my first Share on LinkedIn through Python!"
+                        "text": message
                     },
                     "shareMediaCategory": "NONE"
                 }
@@ -68,4 +67,4 @@ class Publisher:
 
         response = requests.post(url, headers=headers, json=post_data)
 
-        print(response)
+        return response
