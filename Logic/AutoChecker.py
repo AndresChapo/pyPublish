@@ -8,10 +8,9 @@ class AutoChecker:
     configfile = ""
 
     def __init__(self):
-        pass
+        self.configfile = config('PROFILE')
 
     def seekPendingContent(self):
-        self.configfile = config('PROFILE')
         #self.configfile = Logic.Config.config('ORG_TANDU')
         archivo = abrirArchivo()
 

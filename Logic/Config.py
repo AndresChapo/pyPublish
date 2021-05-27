@@ -1,22 +1,14 @@
 from configparser import ConfigParser
 
-CREDENCIALES_BD = 'PRD_ESCRITURA'
-
-class Credenciales ():
-
-    CREDENCIALES_BD = 'DEMO'
-    def credenciales_bd(self):
-        return CREDENCIALES_BD
-
 def abrirArchivo():
-    archivo = '../config.ini'
+    archivo = '../content.ini'
     # Crear el parser y leer el archivo
     parser = ConfigParser()
     parser.read(archivo)
     return parser
 
 def guardarArchivo(archivo):
-    with open('../config.ini', 'w') as archivoini:
+    with open('../content.ini', 'w') as archivoini:
         archivo.write(archivoini)
 
 def config(seccion):
@@ -35,9 +27,18 @@ def config(seccion):
         raise Exception('Secccion {0} no encontrada en el archivo {1}'.format(seccion, archivo))
     return db
 
-
+"""
 def validar_usuario(usuario, contrasena):
     archivo = 'config.ini'
     parser = ConfigParser()
     parser.read(archivo)
     return (parser.has_section(usuario) and parser[usuario]["password"] == contrasena)
+
+CREDENCIALES_BD = 'PRD_ESCRITURA'
+
+class Credenciales ():
+
+    CREDENCIALES_BD = 'DEMO'
+    def credenciales_bd(self):
+        return CREDENCIALES_BD
+"""
