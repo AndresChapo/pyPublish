@@ -1,19 +1,17 @@
 from Logic.AutoChecker import *
+import schedule
+import time
 
 ac = AutoChecker()
 
-ac.seekPendingContent()
 
-"""
-from scheduler import Scheduler
+def job():
+    print("I'm working...")
 
-def f():
-    print("Cada dos segundos.")
-scheduler = Scheduler()
-scheduler.add(2, 0, f)  # Agregar una tarea.
+schedule.every(3).seconds.do(ac.seekPendingContent)
+
+#schedule.every().day.at("10:30").do(job)
+
 while True:
-    scheduler.run()
-"""
-
-
-
+    schedule.run_pending()
+    time.sleep(1)
