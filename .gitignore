@@ -130,5 +130,5 @@ dmypy.json
 
 # Custom files
 config.ini
-info.txt
+/info.txt
 .idea/
