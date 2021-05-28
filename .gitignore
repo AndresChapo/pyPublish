@@ -140,3 +140,4 @@ passenger_wsgi.pyc
 .htaccess
 Presentation/.htaccess
 app.pyc
+__pycache__
