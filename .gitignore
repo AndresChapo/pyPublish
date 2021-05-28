@@ -139,3 +139,4 @@ passenger_wsgi.py
 passenger_wsgi.pyc
 .htaccess
 Presentation/.htaccess
+app.pyc
