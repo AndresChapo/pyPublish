@@ -133,3 +133,4 @@ config.ini
 content.ini
 info.txt
 .idea/
+curl.exe
