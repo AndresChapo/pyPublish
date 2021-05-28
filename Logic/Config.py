@@ -1,18 +1,18 @@
 from configparser import ConfigParser
 
 def abrirArchivo():
-    archivo = '../content.ini'
+    archivo = 'content.ini'
     # Crear el parser y leer el archivo
     parser = ConfigParser()
     parser.read(archivo)
     return parser
 
 def guardarArchivo(archivo):
-    with open('../content.ini', 'w') as archivoini:
+    with open('content.ini', 'w') as archivoini:
         archivo.write(archivoini)
 
 def config(seccion):
-    archivo = '../config.ini'
+    archivo = 'config.ini'
     # Crear el parser y leer el archivo
     parser = ConfigParser()
     parser.read(archivo)

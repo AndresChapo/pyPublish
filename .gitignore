@@ -135,3 +135,7 @@ info.txt
 .idea/
 curl.exe
 logs/
+passenger_wsgi.py
+passenger_wsgi.pyc
+.htaccess
+Presentation/.htaccess
