@@ -21,17 +21,18 @@ class AutoChecker:
         self.type = type
         self.time = time
         self.sleep_secs = sleep_secs
+        """
         if type == 'SECONDS':
             schedule.every(int(time)).seconds.do(self.seekPendingContent)
         if type == 'HOUR':
             schedule.every().day.at(str(time)).do(self.seekPendingContent)
-
+        """
     def seekPendingContent(self):
         #self.configfile = Logic.Config.config('ORG_TANDU')
         archivo = abrirArchivo('content.ini')
 
         #hoy = str(time.gmtime().tm_year) +"-"+str(time.gmtime().tm_mon).zfill(2) +"-"+ str(time.gmtime().tm_mday).zfill(2)
-        hoy = str(time.strftime("%Y-%m-%d %H:%M", time.gmtime()))
+        hoy = str(time.strftime("%Y-%m-%d %H", time.gmtime()))
         l.log("Buscando post para la fecha: " + hoy)
 
         if archivo.has_section(hoy):
@@ -56,7 +57,8 @@ class AutoChecker:
         self.running = True
         while self.running==True:
             l.log("Chequeando ahora")
-            schedule.run_pending()
+            #schedule.run_pending()
+            self.seekPendingContent()
             time.sleep(int(self.sleep_secs))
         l.log("Se detuvo AutoCheck")
 
