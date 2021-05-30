@@ -1,12 +1,18 @@
 from configparser import ConfigParser
 
+def abrirArchivo(ruta):
+    # Crear el parser y leer el archivo
+    parser = ConfigParser()
+    parser.read(ruta)
+    return parser
+"""
 def abrirArchivo():
     archivo = 'content.ini'
     # Crear el parser y leer el archivo
     parser = ConfigParser()
     parser.read(archivo)
     return parser
-
+"""
 def guardarArchivo(archivo):
     with open('content.ini', 'w') as archivoini:
         archivo.write(archivoini)
