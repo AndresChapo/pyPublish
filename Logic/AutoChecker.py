@@ -1,5 +1,5 @@
 import time
-import schedule
+#import schedule
 from Logic.Config import *
 from Logic.Publisher import *
 from Logic.Logger import *
@@ -9,7 +9,7 @@ class AutoChecker:
     archivo = ""
     configfile = ""
     type=""
-    time=1
+    time=1 #hay que desestimar estas variables
     sleep_secs=1
     running=False
 
